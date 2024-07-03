@@ -5,7 +5,7 @@ function CartWidget() {
     return (
         <div className="CartWidget">
             <ShoppingCart size="60"/>
-            <span>3</span>
+            <span> 3 </span>
         </div>
     );
 }

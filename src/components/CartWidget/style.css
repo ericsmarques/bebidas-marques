@@ -1,11 +1,11 @@
 .CartWidget {
     position: relative;
-    
+    display: inline-block;
 }
 
 .CartWidget span {
     position: absolute;
     top: 15px;
-    right: 265px;
+    left: 32px;
     font-weight: 700;
 }
