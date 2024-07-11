@@ -7,7 +7,7 @@ const getItem = () => {
       resolve({
         id: 1,
         title: 'Ballantines',
-        description: 'Whisky Ballantines, 12 anos',
+        description: 'Whisky Ballantines, 12 anos. Bebida que irei complementar a descrição. Por hora é apenas para completar o desafio.',
         price: 300,
         pictureUrl: 'https://th.bing.com/th/id/OIP.mPZMhsqe5cjardMikcY2TAHaHa?rs=1&pid=ImgDetMain'
       });
