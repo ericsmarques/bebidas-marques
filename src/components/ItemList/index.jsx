@@ -1,14 +1,18 @@
-import Item from '../Item/index';
-import './style.css';
+import Item from '../Item';
 
-function ItemList({ items, onAddToCart }) {
-  return (
-    <div className="item-list">
-      {items.map(item => (
-        <Item key={item.id} item={item} onAddToCart={onAddToCart} />
-      ))}
-    </div>
-  );
+function ItemList({ items, onAddToCart, onShowDetail }) {
+    return (
+        <div className="ItemList">
+            {items.map((item) => (
+                <Item 
+                    key={item.id} 
+                    item={item} 
+                    onAddToCart={onAddToCart} 
+                    onShowDetail={onShowDetail} 
+                />
+            ))}
+        </div>
+    );
 }
 
 export default ItemList;

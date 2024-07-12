@@ -1,0 +1,17 @@
+.Header {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.Header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #343a40;
+}
+
+.Header p {
+    margin: 0;
+    font-size: 18px;
+    color: #6c757d;
+}

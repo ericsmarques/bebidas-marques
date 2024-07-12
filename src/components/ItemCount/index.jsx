@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './style.css';
+import '../ItemCount/style.css';
 
 function ItemCount({ stock, initial, onAdd }) {
     const [count, setCount] = useState(initial);
@@ -32,6 +32,6 @@ function ItemCount({ stock, initial, onAdd }) {
         <button className="btn add-btn" onClick={handleAdd} disabled={stock === 0}>Adicionar ao carrinho</button>
       </div>
     );
-  }
+}
   
-  export default ItemCount;
+export default ItemCount;

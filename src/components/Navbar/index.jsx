@@ -4,15 +4,15 @@ import CartWidget from "../CartWidget/index.jsx";
 function Navbar() {
     return (
         <div className="Navbar">
-            <h1>Loja de Bebidas</h1>
-
             <nav>
-                <li><a target="_blank" href="https://www.linkedin.com" rel="noreferrer"> Sobre (loja exemplo)</a></li>
-                <li><a target="_blank" href="https://www.mundodasbebidas.com.br/" rel="noreferrer"> Consulte nossos produtos</a></li>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Produtos</a></li>
+                    <li><a href="/about">Sobre</a></li>
+                    <li><a href="/contact">Contato</a></li>
+                    <CartWidget />
+                </ul>
             </nav>
-
-            <CartWidget />
-
         </div>
     );
 }

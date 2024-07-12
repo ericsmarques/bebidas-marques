@@ -1,42 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import ItemList from '../ItemList/index';
-import './style.css'
-import '../Item/style.css'
-import '../ItemList/style.css'
+import React, { useState, useEffect } from 'react';
+import ItemList from '../ItemList';
+import ItemDetailContainer from '../ItemDetailContainer';
+
+const fetchItems = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve([
+                { id: 1, title: 'Ballantines', description: 'Whisky Ballantines', price: 300, pictureUrl: 'https://th.bing.com/th/id/OIP.mPZMhsqe5cjardMikcY2TAHaHa?rs=1&pid=ImgDetMain', stock: 5 },
+                { id: 2, title: 'Blue Label', description: 'Whisky Blue Label', price: 500, pictureUrl: 'https://th.bing.com/th/id/OIP.CgwRa91-DAseJMS0A1g9WwHaHa?rs=1&pid=ImgDetMain', stock: 3 },
+                { id: 3, title: 'Diplomático', description: 'Whisky Diplomático', price: 1000, pictureUrl: 'https://whisky.nl/media/catalog/product/d/i/diplomatico-distillery-collection-no-3-pot-still-70cl.jpg?width=1400&height=1400&store=whisky_nl&image-type=image', stock: 2 },
+            ]);
+        }, 2000);
+    });
+};
 
 function ItemListContainer({ greeting }) {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+    const [items, setItems] = useState([]);
+    const [selectedItem, setSelectedItem] = useState(null);
 
-  const handleAddToCart = (item, count) => {
-    console.log(`Adicionar ${count} ${item.title} ao carrinho`);
-  };
+    useEffect(() => {
+        fetchItems().then((data) => {
+            setItems(data);
+        });
+    }, []);
 
-  useEffect(() => {
-    const fetchItems = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve([
-            { id: 1, title: 'Ballantines', description: 'Whisky Ballantines', price: 300, stock: 5, pictureUrl: 'https://th.bing.com/th/id/OIP.mPZMhsqe5cjardMikcY2TAHaHa?rs=1&pid=ImgDetMain' },
-            { id: 2, title: 'Blue Label', description: 'Whisky Blue Label', price: 500, stock: 3, pictureUrl: 'https://th.bing.com/th/id/OIP.CgwRa91-DAseJMS0A1g9WwHaHa?rs=1&pid=ImgDetMain' },
-            { id: 3, title: 'Diplomático', description: 'Whisky Diplomático', price: 1000, stock: 2, pictureUrl: 'https://whisky.nl/media/catalog/product/d/i/diplomatico-distillery-collection-no-3-pot-still-70cl.jpg?width=1400&height=1400&store=whisky_nl&image-type=image' },
-          ]);
-        }, 2000);
-      });
+    const handleAddToCart = (id, count) => {
+        const item = items.find(item => item.id === id);
+        setSelectedItem({ ...item, count });
     };
 
-    fetchItems().then((data) => {
-      setItems(data);
-      setLoading(false);
-    });
-  }, []);
+    const handleShowDetail = (id) => {
+        const item = items.find(item => item.id === id);
+        setSelectedItem(item);
+    };
 
-  return (
-    <div className="ItemListContainer">
-      <h2>{greeting}</h2>
-      {loading ? <p>Carregando...</p> : <ItemList items={items} onAddToCart={handleAddToCart} />}
-    </div>
-  );
+    return (
+        <div className="ItemListContainer">
+            <h2>{greeting}</h2>
+            <ItemList items={items} onAddToCart={handleAddToCart} onShowDetail={handleShowDetail} />
+            {selectedItem && <ItemDetailContainer itemId={selectedItem.id} count={selectedItem.count} />}
+        </div>
+    );
 }
 
 export default ItemListContainer;
+
+

@@ -1,0 +1,36 @@
+.Navbar {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+
+.Navbar nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.Navbar li {
+    display: inline;
+}
+
+.Navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.Navbar a:hover {
+    color: #adb5bd;
+}
+
+.CartWidget {
+    margin-left: auto;
+}
