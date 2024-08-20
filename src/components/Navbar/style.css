@@ -1,6 +1,7 @@
 .Navbar {
+    position: relative;
     background-color: #343a40;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .Navbar nav {
@@ -31,6 +32,9 @@
     color: #adb5bd;
 }
 
-.CartWidget {
+.Navbar .CartWidget {
     margin-left: auto;
+    position: absolute;
+    top: 10px;
+    right: 20px;
 }
